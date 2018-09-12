@@ -163,4 +163,25 @@ class VerticalBiCircleView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : VerticalBiCircleView) {
+        private val animator : Animator = Animator(view)
+        private val vbc : VerticalBiCircle = VerticalBiCircle(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(Color.parseColor("#BDBDBD"))
+            vbc.draw(canvas, paint)
+            animator.animate {
+                vbc.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            vbc.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
