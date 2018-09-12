@@ -30,7 +30,7 @@ fun Canvas.drawVBCNode(i : Int, scale : Float, paint : Paint) {
         save()
         translate(0f, r * sf + (h/2 - 2 * r) * sf * sc2)
         rotate(180f * sc1)
-        drawArc(RectF(-r, -r + r * j, r, -r + r * j + 2 * r),
+        drawArc(RectF(-r, -2*r + 2 * r * j, r, -2*r + 2 * r * j + 2 * r),
                 180f * j, 180f, false, paint)
         restore()
     }
