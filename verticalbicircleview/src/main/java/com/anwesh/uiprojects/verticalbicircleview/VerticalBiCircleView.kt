@@ -146,11 +146,12 @@ class VerticalBiCircleView(ctx : Context) : View(ctx) {
     }
 
     data class VerticalBiCircle(var i : Int) {
-        private var curr : VBCNode = VBCNode(0)
+        private var root : VBCNode = VBCNode(0)
+        private var curr : VBCNode = root
         private var dir : Int = 1
 
         fun draw(canvas : Canvas, paint : Paint) {
-            curr.draw(canvas, paint)
+            root.draw(canvas, paint)
         }
 
         fun update(cb : (Int, Float) -> Unit) {
