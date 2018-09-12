@@ -4,6 +4,7 @@ package com.anwesh.uiprojects.verticalbicircleview
  * Created by anweshmishra on 13/09/18.
  */
 
+import android.app.Activity
 import android.view.View
 import android.view.MotionEvent
 import android.content.Context
@@ -184,6 +185,14 @@ class VerticalBiCircleView(ctx : Context) : View(ctx) {
             vbc.startUpdating {
                 animator.start()
             }
+        }
+    }
+
+    companion object {
+        fun create(activity : Activity) : VerticalBiCircleView {
+            val view : VerticalBiCircleView = VerticalBiCircleView(activity)
+            activity.setContentView(view)
+            return view
         }
     }
 }
