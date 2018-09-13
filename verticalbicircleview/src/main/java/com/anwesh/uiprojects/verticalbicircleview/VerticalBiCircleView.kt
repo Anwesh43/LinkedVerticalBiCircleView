@@ -34,6 +34,7 @@ fun Canvas.drawVBCNode(i : Int, scale : Float, paint : Paint) {
                 180f * j, 180f, false, paint)
         restore()
     }
+    drawLine(-gap/2, 0f, -gap/2 + gap * sc2, 0f, paint)
     restore()
 }
 
@@ -58,7 +59,7 @@ class VerticalBiCircleView(ctx : Context) : View(ctx) {
 
     data class State(var scale : Float = 0f, var dir : Float = 0f, var prevScale : Float = 0f) {
         fun update(cb : (Float) -> Unit) {
-            this.scale += 0.1f * dir
+            this.scale += 0.05f * dir
             if (Math.abs(scale - prevScale) > 1) {
                 scale = prevScale + dir
                 dir = 0f
